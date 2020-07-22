@@ -1,0 +1,30 @@
+<html>
+
+<h1>Hello World</h1>
+
+
+<form method="GET" action="">
+    Select number of elements:
+        <select name="noOfElements">
+            <option value=5>5</option>
+            <option value=10>10</option>
+          </select>
+
+          <br> <br> <br>
+
+{{data}}
+
+<br>
+<br>
+
+
+{% for i in noOfPages %}
+<input type="submit" value={{i}} name="pageNo">
+
+{% endfor %}
+</form>
+
+
+<a href='/csvPagination'>Click here for CSV pagination </a>
+
+</html>

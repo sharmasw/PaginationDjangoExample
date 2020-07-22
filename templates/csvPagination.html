@@ -1,0 +1,55 @@
+<html>
+    <h1>CSV pagination</h1>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100px;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+<body>
+    <form action="/csvPagination" method="GET">
+        Select number of elements:
+        <select name="noOfElements">
+            <option value=5>5</option>
+            <option value=10>10</option>
+          </select>
+    
+    <table>
+        <tr>
+            {% for colName in headerInfo %}
+            <th>{{colName}}</th>
+            {% endfor%}
+        </tr>
+
+       
+            {% for row in data %}
+            <tr>
+            {% for ele in row %}
+            <td>{{ele}}</td>
+            {% endfor %}
+        </tr>
+            {% endfor %}
+        
+    </table>
+
+      <br> <br> <br>
+    {% for i in noOfPages %}
+<input type="submit" value={{i}} name="pageNo">
+
+{% endfor %}
+</form>
+
+</body> 
+
+</html>
